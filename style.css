@@ -1,0 +1,99 @@
+/* CSS Variables */
+:root {
+  --grid-width: 12;
+  --grid-height: 16;
+}
+
+html {
+  font-size: calc(15px + 0.390625vw);
+  /* font-size: calc(15px + 0.8vw); */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  outline: 2px solid crimson;
+  box-sizing: border-box;
+}
+
+#intro-page {
+  display: none;
+}
+
+#game-page {
+  width: 100vw;
+  max-width: 100%;
+  height: 100vh;
+  outline: 3px solid orange;
+  display: flex;
+}
+
+#grid-container {
+  /* width: 100vmin; */
+  height: 100vh;
+  width: calc((6/8)*100vw);
+  outline: 3px solid lightseagreen;
+  display: grid;
+  /* padding: 0.5rem; */
+  /* width: 80vw; */
+}
+
+/* .grid-item {
+  padding: 0;
+  margin: 0;
+  /* width: calc((80vw) / 20);
+  height: calc((100vh) / 15); */
+/* aspect-ratio: auto 1 / 1
+} */
+
+*/ #game-bar {
+  /* width: calc(100vmax - 100vmin); */
+  width: calc((2/8)*100vw);
+  outline: 3px solid purple;
+  height: 100%;
+  width: 19.9vw;
+}
+
+/* UTILITY CLASSES */
+.flex-col-center {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  /* justify-content: center; */
+}
+
+.flex-row-center {
+  display: flex;
+  flex-direction: row;
+  /* align-items: center; */
+  /* justify-content: center; */
+}
+
+/* ELEMENTS */
+.soil {
+  background: url(./images/soil.jpg) center center / cover no-repeat;
+}
+
+.grass {
+  background: url(./images/grass.png) center center / cover no-repeat;
+}
+
+.rock {
+  background: url(./images/rock1.png) center center / cover no-repeat;
+}
+
+.tree-top {
+  background: url(./images/tree-leaves.png) center center / cover no-repeat;
+}
+
+.tree-buttom {
+  background: url(./images//) center center / cover no-repeat;
+}
+
+
+/* test */
+
+/* .grid-item,
+#grid-container {
+  aspect-ratio: auto 1 / 1
+} */
