@@ -35,6 +35,7 @@ body {
   width: calc((6/8)*100vw);
   outline: 3px solid lightseagreen;
   display: grid;
+  background-color: skyblue;
   /* padding: 0.5rem; */
   /* width: 80vw; */
 }
@@ -88,9 +89,12 @@ body {
 }
 
 .tree-buttom {
-  background: url(./images//) center center / cover no-repeat;
+  background: url(./images/tree.png) center center / cover no-repeat;
 }
 
+.cloud {
+  background: url(./images/cloud.png) center center / cover no-repeat;
+}
 
 /* test */
 
