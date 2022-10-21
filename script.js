@@ -13,7 +13,7 @@ function createGrid(height, width) {
     for (let j = 0; j < width; j++) {
       let element = document.createElement("div");
       element.innerText = "";
-      element.setAttribute("id", `gr${i}-${j}`);
+      element.setAttribute("id", `grid${i}-${j}`);
       element.setAttribute("class", "grid-item");
       gridContainer.append(element);
       // console.log(`hi i am gr${i}-${j}`);
@@ -21,6 +21,7 @@ function createGrid(height, width) {
   }
 }
 createGrid(gridHeight, gridWidth);
+
 // function paintBoard(element, i, j) {
 //   if (i > 10) {
 //     return "soil grid-item";
@@ -30,10 +31,11 @@ createGrid(gridHeight, gridWidth);
 //     for (let k = 0; k< j+1;k++)
 //   }
 // }
+
 const gridItems = document.querySelectorAll(".grid-item");
 
 for (let k = 0; k < gridItems.length; k++) {
-  let [i, j] = gridItems[k].getAttribute("id").slice(2).split("-");
+  let [i, j] = gridItems[k].getAttribute("id").slice(4).split("-");
   console.log(`i${i} j${j} k${k}`);
   draw(Number(i), Number(j), Number(k));
 }

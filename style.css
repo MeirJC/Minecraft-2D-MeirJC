@@ -1,12 +1,13 @@
 /* CSS Variables */
 :root {
-  --grid-width: 12;
-  --grid-height: 16;
+  --grid-width: 15;
+  --grid-height: 20;
 }
 
 html {
   font-size: calc(15px + 0.390625vw);
   /* font-size: calc(15px + 0.8vw); */
+  font-size: 10px;
 }
 
 body {
