@@ -7,6 +7,7 @@
   <img src="https://github.com/MeirJC/Minecraft-2D-MeirJC/blob/main/screenshots/screenshot2.png" width="375"
   title="Game Screen" alt="Game Screen">
 </p>
+
 ---
 
 ## this is a 2D web version of Minecraft game.
