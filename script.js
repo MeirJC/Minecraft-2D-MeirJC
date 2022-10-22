@@ -17,7 +17,7 @@ const inventoryItem = document.querySelector(".inventory-item");
 // initial state for inventory and current material
 let inventoryHold = false;
 let currenMaterial = "";
-// objec to holt temp materials
+// object to holt temp materials
 const materialsAndTools = {
   currenTool: "",
   currenMaterial: "",
@@ -144,7 +144,7 @@ function paintWorld1(worldArr) {
       }
       for (let k = 0; k < i - 4; k++) {
         if (i < 10 && i > 4 && j >= 0 && j < 5) {
-          world1[i][0 + k] = "rock";
+          world1[i][k] = "rock";
         }
       }
       if (i < 10 && i > 6 && j === 12) {
@@ -158,8 +158,8 @@ function paintWorld1(worldArr) {
         }
       }
       for (let k = 0; k < i; k++) {
-        if (i < 4 * 1 && i > 0 && j === 4 * 1) {
-          world1[i][4 * 1] = "cloud";
+        if (i < 4 && i > 0 && j === 4) {
+          world1[i][4] = "cloud";
           world1[i][6 - k] = "cloud";
           world1[i][3 - k] = "cloud";
         }
@@ -221,7 +221,7 @@ function paintWorld3(worldArr) {
 
       for (let k = 0; k < i - 2; k++) {
         if (i < 15 && i > 2 && j >= 0) {
-          world3[i][0 + k] = "rock";
+          world3[i][k] = "rock";
         }
       }
 
