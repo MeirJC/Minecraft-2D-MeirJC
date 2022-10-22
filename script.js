@@ -17,6 +17,18 @@ const inventoryItem = document.querySelector(".inventory-item");
 // initial state for inventory and current material
 let inventoryHold = false;
 let currenMaterial = "";
+// objec to holt temp materials
+const materialsAndTools = {
+  currenTool: "",
+  currenMaterial: "",
+};
+// reset button
+const resetButton = document.querySelector("#resetButton");
+resetButton.addEventListener("click", () => {
+  gridContainer.innerHTML = "";
+  createGrid(gridHeight, gridWidth);
+  worldArr = setWorldArr();
+});
 // -------------------------------------------------------------------------------
 // =============================== START GAME ====================================
 // -------------------------------------------------------------------------------
@@ -42,14 +54,11 @@ function createGrid(height, width) {
       gridContainer.append(element);
     }
   }
+  gridContainer.style.background = `linear-gradient(0deg, #${totallyRandomHex()} 5%, #87CEEB 100%)`;
 }
 
 createGrid(gridHeight, gridWidth);
-// objec to holt temp materials
-const materialsAndTools = {
-  currenTool: "",
-  currenMaterial: "",
-};
+
 //
 axeTools.addEventListener("click", (e) => {
   materialsAndTools.currenTool = "axe";
@@ -72,7 +81,7 @@ pikeaxeTools.addEventListener("click", (e) => {
 
 // grid event
 gridContainer.addEventListener("click", (e) => {
-  console.log(e.target);
+  // console.log(e.target);
   if (!inventoryHold) {
     takeOut(e);
   } else if (inventoryHold) {
@@ -298,7 +307,13 @@ function setWorldArr() {
       randomWorldArr[i].push("");
     }
   }
+  // console.log("RESET");
   return allWorldsArr[Math.floor(Math.random() * allWorldsArr.length)](
     randomWorldArr
   );
+}
+function totallyRandomHex() {
+  let randomHexValue = Math.floor(Math.random() * (16 ** 6 - 1)).toString(16);
+  // console.log(randomHexValue);
+  return randomHexValue;
 }
