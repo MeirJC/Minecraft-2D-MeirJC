@@ -4,15 +4,90 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Silkscreen&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./normalize.css" />
     <link rel="stylesheet" href="./style.css" />
     <script src="./script.js" defer></script>
-    <title>Document</title>
+    <title>2D Minecraft</title>
   </head>
   <body>
-    <div id="intro-page" style="display: none"></div>
-    <div id="game-page">
-      <div id="grid-container"></div>
-      <div id="game-bar"></div>
+    <div id="intro-page">
+      <div class="intro-page-container flex-col">
+        <div class="game-logo">
+          <img src="./images/minecraft-logo.png" alt="minecraft logo" />
+        </div>
+        <button id="startButton">START MINING!</button>
+        <div class="welcome-text">
+          <h1>Welcome to 2D Minecraft</h1>
+          <p>
+            you have an open world, feel free to take out elemnts and place them
+            whereever you like. notice though that you can only place elements
+            in cells not contained by other elements.
+          </p>
+          <h3>you have 3 tools in this game:</h3>
+          <ul>
+            <li></li>
+              <div class="small axe-sm"></div>
+              Axe - Used to mine Wood elements
+            </li>
+
+            <li>
+              <div class="small pikeaxe-sm"></div>
+              PikeAxe - Used to mine Stone elements
+            </li>
+
+            <li>
+              <div class="small shovel-sm"></div>
+              shovel - Used to mine Soil elements
+            </li>
+          </ul>
+          <p>
+once you mined an element it gets into the inventory and you maust use it before minind a new element
+          </p>
+          <h2>Happy Mining</h2>
+          <h5>Meir J C</h5>
+        </div>
+      </div>
     </div>
+    <div id="game-page">
+      <div id="grid-container" class="flex-col"></div>
+      <div id="game-bar" class="flex-col">
+        <div class="barItem flex-col">
+          <div class="tool axe"></div>
+          <p>Axe</p>
+        </div>
+        <div class="barItem flex-col">
+          <div class="tool shovel"></div>
+          <p>Shovel</p>
+        </div>
+        <div class="barItem flex-col">
+          <div class="tool pikeaxe"></div>
+          <p>Pike-Axe</p>
+        </div>
+        <div class="barItem flex-col">
+          <div class="inventory-item"></div>
+          <p>Inventory</p>
+        </div>
+        <button id="resetButton">RESET</button>
+      </div>
+    </div>
+    <div id="turn-device-page" class="rotate bg">
+      <div class="rotate-container">
+        <div class="rotate-pic-div">
+          <img src="./images/rotate.png" alt="" />
+        </div>
+        <div class="rotate-text">
+          <p>
+            This game was built for playing in horizontal orientation<br />
+            please rotate your device.
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>

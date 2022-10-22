@@ -2,8 +2,31 @@ let gridHeight = 15; // like i
 let gridWidth = 20; // like j
 let arrOfIndexes = [];
 let worldArr = setWorldArr();
+// Start Page
+const startButton = document.querySelector("#startButton");
+const introPage = document.querySelector("#intro-page");
+const gamePage = document.querySelector("#game-page");
+// Grid
 const gridContainer = document.querySelector("#grid-container");
-
+// tools
+const axeTools = document.querySelector(".axe");
+const shovelTools = document.querySelector(".shovel");
+const pikeaxeTools = document.querySelector(".pikeaxe");
+const barItem = document.querySelectorAll(".barItem");
+const inventoryItem = document.querySelector(".inventory-item");
+// initial state for inventory and current material
+let inventoryHold = false;
+let currenMaterial = "";
+// -------------------------------------------------------------------------------
+// =============================== START GAME ====================================
+// -------------------------------------------------------------------------------
+gamePage.style.display = "none";
+// start button
+startButton.addEventListener("click", () => {
+  introPage.style.display = "none";
+  gamePage.style.display = "flex";
+});
+// create grid and initialize
 function createGrid(height, width) {
   gridContainer.setAttribute(
     "style",
@@ -15,29 +38,87 @@ function createGrid(height, width) {
       let element = document.createElement("div");
       element.innerText = "";
       element.setAttribute("id", `grid${i}-${j}`);
-      element.setAttribute("class", `grid-item ${worldArr[i][j]}`);
+      element.setAttribute("class", `${worldArr[i][j]}`);
       gridContainer.append(element);
-      // console.log(`hi i am gr${i}-${j}`);
     }
   }
 }
+
 createGrid(gridHeight, gridWidth);
+// objec to holt temp materials
+const materialsAndTools = {
+  currenTool: "",
+  currenMaterial: "",
+};
+//
+axeTools.addEventListener("click", (e) => {
+  materialsAndTools.currenTool = "axe";
+  e.target.style.borderColor = "crimson";
+  shovelTools.style.borderColor = "#aaaaaa";
+  pikeaxeTools.style.borderColor = "#aaaaaa";
+});
+shovelTools.addEventListener("click", (e) => {
+  materialsAndTools.currenTool = "shovel";
+  e.target.style.borderColor = "crimson";
+  pikeaxeTools.style.borderColor = "#aaaaaa";
+  axeTools.style.borderColor = "#aaaaaa";
+});
+pikeaxeTools.addEventListener("click", (e) => {
+  materialsAndTools.currenTool = "pikeaxe";
+  e.target.style.borderColor = "crimson";
+  shovelTools.style.borderColor = "#aaaaaa";
+  axeTools.style.borderColor = "#aaaaaa";
+});
 
-// const gridItems = document.querySelectorAll(".grid-item");
+// grid event
+gridContainer.addEventListener("click", (e) => {
+  console.log(e.target);
+  if (!inventoryHold) {
+    takeOut(e);
+  } else if (inventoryHold) {
+    putIn(e);
+  }
+});
 
-// for (let k = 0; k < gridItems.length; k++) {
-//   let [i, j] = gridItems[k].getAttribute("id").slice(4).split("-");
-//   console.log(`i${i} j${j} k${k}`);
-//   draw(Number(i), Number(j), Number(k));
-// }
-
-// function draw(i, j, k) {
-//   if (i === 10) {
-//     gridItems[k].classList.add("grass");
-//   } else if (i > 10) {
-//     gridItems[k].classList.add("soil");
-//   }
-// }
+function takeOut(e) {
+  if (
+    materialsAndTools.currenTool === "axe" &&
+    (e.target.getAttribute("class").includes("tree-bottom") ||
+      e.target.getAttribute("class").includes("tree-top"))
+  ) {
+    inventoryItem.classList.add(e.target.getAttribute("class"));
+    currenMaterial = e.target.getAttribute("class");
+    e.target.classList.remove(e.target.getAttribute("class"));
+    inventoryHold = true;
+  }
+  if (
+    materialsAndTools.currenTool === "shovel" &&
+    (e.target.getAttribute("class").includes("soil") ||
+      e.target.getAttribute("class").includes("grass"))
+  ) {
+    inventoryItem.classList.add(e.target.getAttribute("class"));
+    currenMaterial = e.target.getAttribute("class");
+    e.target.classList.remove(e.target.getAttribute("class"));
+    inventoryHold = true;
+  }
+  if (
+    materialsAndTools.currenTool === "pikeaxe" &&
+    e.target.getAttribute("class").includes("rock")
+  ) {
+    inventoryItem.classList.add(e.target.getAttribute("class"));
+    currenMaterial = e.target.getAttribute("class");
+    e.target.classList.remove(e.target.getAttribute("class"));
+    inventoryHold = true;
+  }
+}
+function putIn(e) {
+  if (e.target.getAttribute("class") === "") {
+    inventoryItem.classList.remove(currenMaterial);
+    e.target.classList.add(currenMaterial);
+    currenMaterial = "";
+    inventoryHold = false;
+  }
+}
 
 // -------------------------------------------------------------------------------
 // ============================= PAINT WORLDS ====================================
@@ -58,7 +139,7 @@ function paintWorld1(worldArr) {
         }
       }
       if (i < 10 && i > 6 && j === 12) {
-        world1[i][j] = "tree-buttom";
+        world1[i][j] = "tree-bottom";
       }
       for (let k = 0; k < i - 1; k++) {
         if (i < 7 && i > 1 && j === 12) {
@@ -96,7 +177,7 @@ function paintWorld2(worldArr) {
         }
       }
       if (i < 11 && i > 6 && j > 14 && j < 17) {
-        world2[i][j] = "tree-buttom";
+        world2[i][j] = "tree-bottom";
       }
       if (i < 7 && i > 1 && j > 12 && j < 19) {
         world2[i][j] = "tree-top";
@@ -136,7 +217,7 @@ function paintWorld3(worldArr) {
       }
 
       if (i < 12 && i > 6 && j === 10) {
-        world3[i][j] = "tree-buttom";
+        world3[i][j] = "tree-bottom";
       }
       if (
         (i < 8 && i > 5 && j > 8 && j < 12) ||
@@ -184,7 +265,7 @@ function paintWorld4(worldArr) {
       }
 
       if (i < 7 && i > 4 && j === 9) {
-        world4[i][j] = "tree-buttom";
+        world4[i][j] = "tree-bottom";
       }
       if (i < 5 && i > 1 && j > 7 && j < 11) {
         world4[i][j] = "tree-top";

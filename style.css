@@ -4,10 +4,11 @@
   --grid-height: 20;
 }
 
+/* general page setting */
 html {
-  font-size: calc(15px + 0.390625vw);
-  /* font-size: calc(15px + 0.8vw); */
-  font-size: 10px;
+  font-size: calc(15px + 0.4vw);
+  font-size: 2.2vmin;
+  font-family: 'Silkscreen', cursive;
 }
 
 body {
@@ -17,10 +18,82 @@ body {
   box-sizing: border-box;
 }
 
+/* intro page */
 #intro-page {
-  display: none;
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  background: url(./images/minecraft-background.jpg) center center / cover no-repeat;
 }
 
+.intro-page-container {
+  width: 85vw;
+  height: 100vh;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #EEE;
+  justify-content: space-between;
+}
+
+.game-logo>img {
+  display: block;
+  width: 90%;
+  margin: 0 auto;
+}
+
+#startButton {
+  font-size: 3.2rem;
+  background-color: rgba(89, 205, 39, 0.798);
+  box-shadow: 10px 10px gray;
+  transition-duration: 0.8s;
+}
+
+#startButton:hover {
+  box-shadow: 10px 10px 10px 0 rgba(179, 179, 179, 0.67), 10px 10px 10px 0 rgba(175, 175, 175, 0.818);
+  background-color: rgba(157, 201, 138, 0.856);
+  /* box-shadow: 5px 5px gray */
+}
+
+.small {
+  display: inline-block;
+  width: 1.2rem;
+  height: 1.2rem;
+
+}
+
+.welcome-text>ul>li {
+  text-align: center;
+  list-style-type: none;
+}
+
+.welcome-text p,
+.welcome-text h3,
+.welcome-text h2,
+.welcome-text h5 {
+  margin-top: 0.65rem;
+  margin-bottom: 0.65rem;
+
+}
+
+.welcome-text h5 {
+  padding-bottom: 0.5rem;
+}
+
+/* turn device page */
+#turn-device-page {
+  width: 100vw;
+  max-width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+  z-index: 5;
+}
+
+/* game page */
 #game-page {
   width: 100vw;
   max-width: 100%;
@@ -30,45 +103,108 @@ body {
 }
 
 #grid-container {
-  /* width: 100vmin; */
   height: 100vh;
-  width: calc((6/8)*100vw);
-  outline: 3px solid lightseagreen;
+  width: calc((6/8) * 100vw);
   display: grid;
   background-color: skyblue;
-  /* padding: 0.5rem; */
-  /* width: 80vw; */
 }
 
-/* .grid-item {
-  padding: 0;
-  margin: 0;
-  /* width: calc((80vw) / 20);
-  height: calc((100vh) / 15); */
-/* aspect-ratio: auto 1 / 1
-} */
-
-*/ #game-bar {
-  /* width: calc(100vmax - 100vmin); */
-  width: calc((2/8)*100vw);
-  outline: 3px solid purple;
-  height: 100%;
-  width: 19.9vw;
-}
 
 /* UTILITY CLASSES */
-.flex-col-center {
+.flex-col {
   display: flex;
   flex-direction: column;
   /* align-items: center; */
   /* justify-content: center; */
 }
 
-.flex-row-center {
+.flex-row {
   display: flex;
   flex-direction: row;
   /* align-items: center; */
   /* justify-content: center; */
+}
+
+/* ToolBar */
+#game-bar {
+  width: calc((2/8) * 100vw);
+  outline: 3px solid purple;
+  height: 100%;
+  width: 19.9vw;
+  background-color: #333;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.barItem {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 18vmin;
+  align-items: center;
+}
+
+.inventory-item {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 10vmin;
+  height: 10vmin;
+  border: 5px solid #aaa;
+}
+
+.barItem:last-of-type {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+button {
+  margin-top: 1rem;
+}
+
+.tool {
+  width: 10vmin;
+  height: 10vmin;
+  border: 5px solid #aaa;
+  background-color: #333;
+}
+
+.tool img {
+  width: 100%;
+  display: block;
+}
+
+p {
+  color: white;
+  margin: 0.2rem;
+}
+
+/* TOOLS */
+.axe {
+  background: url(./images/axe.png) center center / cover no-repeat;
+}
+
+.shovel {
+  background: url(./images/shovel.png) center center / cover no-repeat;
+}
+
+.pikeaxe {
+  background: url(./images/pickaxe.png) center center / cover no-repeat;
+}
+
+.axe-sm {
+  background: url(./images/axe.png) center center / cover no-repeat;
+}
+
+.shovel-sm {
+  background: url(./images/shovel.png) center center / cover no-repeat;
+}
+
+.pikeaxe-sm {
+  background: url(./images/pickaxe.png) center center / cover no-repeat;
 }
 
 /* ELEMENTS */
@@ -88,7 +224,7 @@ body {
   background: url(./images/tree-leaves.png) center center / cover no-repeat;
 }
 
-.tree-buttom {
+.tree-bottom {
   background: url(./images/tree.png) center center / cover no-repeat;
 }
 
@@ -96,9 +232,45 @@ body {
   background: url(./images/cloud.png) center center / cover no-repeat;
 }
 
-/* test */
 
-/* .grid-item,
-#grid-container {
-  aspect-ratio: auto 1 / 1
-} */
+#turn-device-page {
+  display: none;
+}
+
+
+
+
+@media (orientation: portrait) {
+  #turn-device-page {
+    background-color: #ccc;
+    width: 100vw;
+    max-width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    z-index: 5;
+  }
+
+  .rotate-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .rotate-pic-div>img {
+    width: 50vmin;
+  }
+
+  .rotate-text>p {
+    font-size: 2rem;
+    color: #333;
+    text-align: center;
+    margin-top: 2rem;
+  }
+
+}
