@@ -20,7 +20,7 @@ except the normal gameplay as described next are 2 more stuff to mention:
 
 ### - the game has 4 different world (picked from randomly)
 
-### - each reload a new random background color combination is generated (using hex values - over 16,000,000 possibilities)
+### - each reload a new random background color combination is generated (using hex values, over 16,000,000 possibilities)
 
 ---
 
