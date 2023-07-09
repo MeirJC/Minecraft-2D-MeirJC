@@ -11,7 +11,8 @@
 ---
 
 ## this is a 2D web version of Minecraft game.
-
+ 
+Live demo availble [Here](https://2d-minecraft-meirjc.netlify.app/)
 ---
 
 ## Game Features
